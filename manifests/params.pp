@@ -15,8 +15,8 @@ class kibana4::params {
     'Debian': { $service_provider = debian }
     'RedHat': {
       case $::operatingsystemmajrelease {
-        '7': { $service_provider = systemd }
-        default: { $service_provider = init }
+        '6','5': { $service_provider = init }
+        default: { $service_provider = systemd }
       }
     }
     default: { $service_provider = init   }
